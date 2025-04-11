@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    background: #1c1c1c;
+}
+
+.content {
+    margin-right: 270px;
+    margin-left: 20px;
+    margin-top: 30px;
+    padding: 20px;
+    flex: 1;
+    background: #2a2a2a;
+    color: white;
+    border-radius: 20px;
+}
+
+.sections-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.box {
+    background: #333;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    flex: 1;
+    min-width: 250px;
+    max-width: 30%;
+}
+
+h1, h2 {
+    margin-bottom: 20px;
+}
+
+.intro p, .features ul, .how-it-works ol, .contact ul {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.features ul, .contact ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.features li, .contact li {
+    margin-bottom: 10px;
+}
+
+.contact a {
+    color: #66ccff;
+    text-decoration: none;
+}
+
+.contact a:hover {
+    text-decoration: underline;
+}
+
+.how-it-works ol {
+    padding-left: 20px;
+}
+
+.how-it-works li {
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .content {
+        margin-right: 220px;
+    }
+
+    .box {
+        max-width: 45%;
+    }
+}
+
+@media (max-width: 600px) {    
+    .content {
+        margin:350px 0 0 0;
+        margin-right: 0;
+        padding: 10px;
+    }
+
+    .box {
+        max-width: 100%;
+    }
+}

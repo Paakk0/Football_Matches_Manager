@@ -1,0 +1,132 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1e1e2e;
+    color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px 275px 0 auto;
+    padding: 20px;
+    background: #222;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+h1, h2 {
+    color: #ff9800;
+}
+
+.form-container {
+    background: #2a2a3a;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.user-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-group {
+    width: 80%;
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #e0e0e0;
+}
+
+.input-group input, .input-group select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background: #3a3a4a;
+    color: #fff;
+}
+
+.input-group select {
+    cursor: pointer;
+}
+
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+}
+
+.add {
+    background: #4caf50;
+    color: white;
+}
+
+.update {
+    background: #2196f3;
+    color: white;
+}
+
+.delete {
+    background: #f44336;
+    color: white;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.user-table th, .user-table td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #444;
+}
+
+.user-table th {
+    background: #333;
+}
+
+.user-table td input, .user-table td select {
+    background: #444;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.user-table tr:hover {
+    background: #333;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    .user-table th, .user-table td {
+        font-size: 14px;
+    }
+
+    .input-group {
+        width: 100%;
+    }
+}
