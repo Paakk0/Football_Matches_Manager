@@ -27,6 +27,7 @@
 
     foreach ($matches as $match) {
         $matchDate = new DateTime($match['match_date']);
+        $matchDate->format('Y-m-d H:i');
         $currentDate = new DateTime();
 
         if ($matchDate < $currentDate) {

@@ -10,15 +10,13 @@ $user = Session::get('user');
 
 $conn = DatabaseConnector::connect();
 
-
-
-$query = "SELECT    Matches.Id, 
-                    Matches.Id_Team1 AS Id_Team1,
-                    Matches.Id_Team2 AS Id_Team2,
-                    Team1.Name AS HomeTeam, 
-                    Team2.Name AS AwayTeam,
-                    Matches.Date AS Date,
-                    Leagues.Name AS League
+$query = "SELECT Matches.Id, 
+                 Matches.Id_Team1 AS Id_Team1,
+                 Matches.Id_Team2 AS Id_Team2,
+                 Team1.Name AS HomeTeam, 
+                 Team2.Name AS AwayTeam,
+                 Matches.Date AS Date,
+                 Leagues.Name AS League
           FROM Matches
           JOIN Teams AS Team1 ON Matches.Id_Team1 = Team1.Id
           JOIN Teams AS Team2 ON Matches.Id_Team2 = Team2.Id
@@ -31,14 +29,14 @@ $query = "SELECT Id, Name FROM Teams";
 $teams_result = $conn->query($query);
 $teams = $teams_result->fetch_all(MYSQLI_ASSOC);
 
-$current_date = date('Y-m-d');
+$current_datetime = new DateTime();
 
 $past_matches = [];
 $future_matches = [];
 
 foreach ($matches as $match) {
-    $match_date = date('Y-m-d', strtotime($match['Date']));
-    if ($match_date < $current_date) {
+    $match_datetime = new DateTime($match['Date']);
+    if ($match_datetime < $current_datetime) {
         $past_matches[] = $match;
     } else {
         $future_matches[] = $match;
@@ -48,9 +46,9 @@ foreach ($matches as $match) {
 if (isset($_POST['add_match'])) {
     $home_team = $_POST['team1_id'];
     $away_team = $_POST['team2_id'];
-    $date = $_POST['match_date'];
+    $date_input = $_POST['match_date'];
 
-    $date = date('Y-m-d', strtotime($date));
+    $date = date('Y-m-d H:i:s', strtotime($date_input));
 
     if ($home_team == $away_team) {
         alertAndRedirect("A team cannot play against itself!", "schedule_matches.php", "error");
@@ -66,9 +64,9 @@ if (isset($_POST['update_match'])) {
     $match_id = $_POST['id'];
     $home_team = $_POST['team1_id'];
     $away_team = $_POST['team2_id'];
-    $date = $_POST['match_date'];
+    $date_input = $_POST['match_date'];
 
-    $date = date('Y-m-d', strtotime($date));
+    $date = date('Y-m-d H:i:s', strtotime($date_input));
 
     if ($home_team == $away_team) {
         alertAndRedirect("A team cannot play against itself!", "schedule_matches.php", "error");

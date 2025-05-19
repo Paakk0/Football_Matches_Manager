@@ -52,7 +52,7 @@ if(isset($_POST['getEmail'])){
         $stmt->execute();
         $stmt->close();
     } catch (Exception $e) {
-        if ($user->getRole) {
+        if ($user->getRole()) {
             alertAndRedirect("$mail->ErrorInfo","../pages/login.php","error");
         }
     }
